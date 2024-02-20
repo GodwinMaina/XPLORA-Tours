@@ -1,0 +1,67 @@
+
+
+//signup user
+POST http://localhost:5500/signup
+Content-Type: application/json
+
+{
+    "userName": "Godwin",
+    "email": "compgodwin@gmail.com",   
+    "password": "atopwudan"
+}
+
+#### login user
+POST http://localhost:5500/auth/login
+Content-Type: application/json
+
+{
+    "email": "compgodwin@gmail.com",   
+    "password": "atopwudan"
+}
+
+
+### create Tours
+POST http://localhost:5500/createTours
+Content-Type: application/json
+
+{
+    "tour_img":"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/21/74/0d/diani-sea-resort.jpg?w=700&h=-1&s=1", 
+    "tourName":"mombasa package", 
+    "tourInfo":"visit diani for more of lively  events live lively",
+    "location":"Diani mombasa",
+    "date":"24/02/2024",
+    "price":"15,000",
+    "tourType":"weekend gateways"
+}
+
+### get All Tours
+GET  http://localhost:5500/Tours
+# token :eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDJjMDk2MjYtNzM4My00NDk4LThjZTItNmNhOWRhNjUxNjJiIiwiZW1haWwiOiJjb21wZ29kd2luQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA2JHpMdGswSkpHSVNTbUpnOGRxZ25nWHVvZEllajkzTmV3bmZhV0JUdmVkcFhCVERKLlpnNkpHIiwiaXNBZG1pbiI6dHJ1ZSwiaXNXZWxjb21lZCI6ZmFsc2UsImlzRGVsZXRlZCI6ZmFsc2UsImlhdCI6MTcwODQwMzIyMSwiZXhwIjoxNzA4NDA2ODIxfQ.TwT4_iS4Hbh1XAvKWhsgTd7IU2C1OLJK-CGs4wNf6s4
+
+
+### get a Single tour by id
+GET  http://localhost:5500/Tours/765b8de9-754b-42a2-99d8-77a5899b80cb
+
+
+
+###Delete tour
+
+DELETE   http://localhost:5500/Tours/765b8de9-754b-42a2-99d8-77a5899b80cb
+
+###Update tour
+
+PUT   http://localhost:5500/Tours/765b8de9-754b-42a2-99d8-77a5899b80cb
+
+
+
+###Edit tour
+
+
+
+
+###Reset password
+PUT  http://localhost:5500/Tours/765b8de9-754b-42a2-99d8-77a5899b80cb
+
+
+
+

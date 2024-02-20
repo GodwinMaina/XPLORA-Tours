@@ -1,0 +1,23 @@
+.navbar {
+  background-color:#4CAF50;
+  color:white;
+  padding: 10px;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  gap: 600px;
+
+}
+
+
+.navbar a{
+  text-decoration: none;
+  font-size: 25px;
+  margin: 20px;
+  color: white;
+}
+.navbar h4{
+  text-align: center;
+
+}
+

@@ -1,0 +1,45 @@
+
+<div class="navbar">
+  <h2>Admin Dashboard</h2>
+  <!-- Add more navbar items if needed -->
+</div>
+
+<div class="container">
+  <div class="sidebar">
+      <!-- <h2>PANEL</h2> -->
+      <ul>
+          <li><a (click)="navigateToAddTours()">Add Tour</a></li>
+          <li><a href="/users">Check Users</a></li>
+          <li><a href="/users">Bookings</a></li>
+          <li><a href="/users">Reviews</a></li>
+          <!-- <li><a href="/adminTours">Manage Tour</a></li> -->
+      </ul>
+  </div>
+
+  <div class="content">
+      <h2>Tours to Display Here</h2>
+
+      <div *ngFor="let tours of myTours; let i = index">
+
+
+        <img src="{{tours.tour_img}}" alt="">
+        {{tours.tourName}}
+        {{tours.tourInfo}}
+        {{tours.location}}
+        {{tours.date}}
+        {{tours.price}}
+        {{tours.tourType}}
+
+
+
+      </div>
+      <h2>edit & delete</h2>
+      <!-- Display tours here -->
+  </div>
+</div>
+
+
+
+
+
+

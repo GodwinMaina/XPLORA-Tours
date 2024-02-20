@@ -1,0 +1,48 @@
+
+
+  /* Navbar styles */
+  .navbar {
+    /* background-color: #fff; */
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); */
+    align-items: center;
+    padding: 15px;
+
+  }
+
+  .navbar-brand {
+
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .navbar-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;
+    font-weight: 1000;
+  }
+
+  .navbar a:hover {
+     background-color:rgb(255, 165, 0);
+    /*background-color:#0056b3;*/
+    border-radius: 20px;
+  }
+
+  .signup-login {
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+  }
