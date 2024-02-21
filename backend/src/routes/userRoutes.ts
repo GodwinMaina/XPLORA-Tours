@@ -1,6 +1,6 @@
 
 import{Router} from "express";
-import { createTour, getAllTours, getSingleTour, signupUser } from "../controllers/userController";
+import { createTour, getAllTours, getAllUsers, getSingleTour, signupUser } from "../controllers/userController";
 import { loginUser } from "../authentications/authLogin";
 import { verifyToken } from "../middlewares/verifyToken";
 verifyToken
@@ -13,6 +13,8 @@ router.post('/signup', signupUser);
 
 // auth/login
 router.post('/auth/login',loginUser);
+
+router.get('/allUsers' , getAllUsers)
 
 
 //createTours

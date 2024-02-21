@@ -1,42 +1,50 @@
 
 <div class="navbar">
+  <a href="/auth/login">&#8592;back</a>
   <h2>Admin Dashboard</h2>
+  <a href="/">&#x1F6AA;LogOut</a>
   <!-- Add more navbar items if needed -->
 </div>
 
-<div class="container">
+<section class="sdt">
   <div class="sidebar">
       <!-- <h2>PANEL</h2> -->
       <ul>
           <li><a (click)="navigateToAddTours()">Add Tour</a></li>
-          <li><a href="/users">Check Users</a></li>
-          <li><a href="/users">Bookings</a></li>
+          <li><a href="/allUsers">Check Users</a></li>
+          <li><a href="/bookings">Bookings</a></li>
           <li><a href="/users">Reviews</a></li>
           <!-- <li><a href="/adminTours">Manage Tour</a></li> -->
       </ul>
   </div>
 
-  <div class="content">
-      <h2>Tours to Display Here</h2>
+  <div class="container">
+      <!-- <h2>Tours to Display Here</h2> -->
 
       <div *ngFor="let tours of myTours; let i = index">
 
+        <section class="containerd">
 
-        <img src="{{tours.tour_img}}" alt="">
-        {{tours.tourName}}
-        {{tours.tourInfo}}
-        {{tours.location}}
-        {{tours.date}}
-        {{tours.price}}
-        {{tours.tourType}}
+          <div class="tour-card">
+           <img src="{{tours.tour_img}}" alt="">
+           <article class="tour-info">
+            <!-- {{tours.tourName}} -->
+            <!-- <p>{{tours.tourInfo}}</p> -->
+            <p>{{tours.location}}</p>
+            <p class="pdate">{{tours.date}}</p>
+            <p>{{tours.tourType}}</p>
+           <p style="font-size: 20px;">Ksh. {{tours.price}}</p>
+           <button>Edit</button>
+           <button>Delete</button>
+          </article>
+          </div>
+        </section>
 
-
-
-      </div>
-      <h2>edit & delete</h2>
+      <!-- <h2>edit & delete</h2> -->
       <!-- Display tours here -->
   </div>
-</div>
+  </div>
+</section>
 
 
 

@@ -31,8 +31,6 @@ this.apiConnect.getAllTours().subscribe(
 
 })
 
-
-
   }
 
     navigateToAddTours() {

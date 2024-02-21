@@ -8,6 +8,9 @@ import { UserPageComponent } from './components/user-page/user-page.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { ToursComponent } from './components/tours/tours.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { GetUsersComponent } from './components/get-users/get-users.component';
+import { BookingsComponent } from './components/bookings/bookings.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 
 export const routes: Routes = [
 
@@ -22,6 +25,9 @@ export const routes: Routes = [
   {path:'tours', component:ToursComponent },
   {path:'about', component:UserPageComponent },
   {path:'contacts', component:UserPageComponent },
+  {path:'allUsers', component:GetUsersComponent },
+  {path:'bookings', component:BookingsComponent },
+  {path:'reviews', component:ReviewsComponent },
   {path:'**', component:ErrorPageComponent }
 
 ];

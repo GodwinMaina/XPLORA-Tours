@@ -1,5 +1,32 @@
 <div class="navbar">
-  <a href="/admin">&#8592;back</a>
-  <h2>User Dashboard</h2>
-  <!-- Add more navbar items if needed -->
+  <a href="/auth/login">&#8592;back</a>
+  <h2>welcome ..... </h2>
+  <a href="/booked">BOOKED</a>
+  <a href="/">&#x1F6AA;LogOut</a>
+</div>
+
+<h2>Book your Tour Today</h2>
+
+<div class="container">
+
+  <div *ngFor="let tours of myTours; let i = index">
+
+    <section class="containerd">
+      <div class="tour-card">
+       <img src="{{tours.tour_img}}" alt="">
+       <article class="tour-info">
+        <!-- {{tours.tourName}} -->
+        <!-- <p>{{tours.tourInfo}}</p> -->
+        <p>{{tours.location}}</p>
+        <p class="pdate">{{tours.date}}</p>
+        <p>{{tours.tourType}}</p>
+        <button (click)="toggleBooking($event)">Book</button>
+
+      </article>
+      </div>
+    </section>
+
+  <!-- <h2>edit & delete</h2> -->
+  <!-- Display tours here -->
+</div>
 </div>

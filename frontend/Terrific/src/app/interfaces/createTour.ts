@@ -1,5 +1,6 @@
 
 export interface createTourInterface{
+  // tour_id:string,
   tourName:string,
   tour_img:string,
   tourInfo:string,
@@ -7,4 +8,5 @@ export interface createTourInterface{
   date:string,
   price:string,
   tourType:string,
+  // bookStatus:string
 }

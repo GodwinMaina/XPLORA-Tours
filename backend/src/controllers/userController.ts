@@ -157,3 +157,33 @@ export const getSingleTour = async (req: Request, res: Response)=>{
         
     }
 }
+
+
+
+export const getAllUsers = async (req: Request, res: Response)=>{
+
+
+    try{
+        const pool = await mssql.connect(sqlConfig);
+        //query to fetch FROM Tour TABLE
+        const message = await pool.query('SELECT * FROM Users');
+        res.json({
+            message: message.recordset
+        });
+
+
+
+    }
+
+
+    catch(error)
+    {
+
+        console.log(error);
+        console.log("error all users cant be get");
+        
+        
+
+    }
+
+}

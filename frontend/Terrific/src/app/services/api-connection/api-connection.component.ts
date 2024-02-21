@@ -25,9 +25,9 @@ export class ApiConnectionComponent {
   //create Tour to endpoint
   // createTour(tourName:createTourInterface) .................same as below
 
-  createTour(tourName: string, tour_img: string, tourInfo: string, location: string, date: string, price: string, tourType: string): Observable<any> {
+  createTour( tourName: string, tour_img: string, tourInfo: string, location: string, date: string, price: string, tourType: string): Observable<any> {
 
-    const tourData: createTourInterface = { tourName: tourName, tour_img: tour_img, tourInfo: tourInfo, location: location, date: date, price: price, tourType: tourType };
+    const tourData: createTourInterface = { tourName: tourName, tour_img: tour_img, tourInfo: tourInfo, location: location, date: date, price: price, tourType: tourType};
     return this.http.post<{ message: string, error: string }>('http://localhost:5500/createTours', tourData)
   }
 
@@ -41,27 +41,37 @@ export class ApiConnectionComponent {
 
 
   getAllTours() {
+
+    interface tourResponse {
+
+      message: [ { tour_img: string ,tourName: string, tourInfo: string, location: string, date: string,price: string,tourType: string,}],
+
+      token: [
+
+        {}
+      ],
+      error: []
+    }
     return this.http.get<tourResponse>('http://localhost:5500/Tours')
+  }
+
+
+  getAllUsers() {
+
+    interface userResponse {
+
+    message: [ { userName:string, email:string, password:string}]
+    }
+
+    return this.http.get<userResponse>('http://localhost:5500/allUsers')
   }
 
 
 
 
-
 }
 
-interface tourResponse {
-  message: [
-    {
-      tour_img: string
-      tourName: string
-      tourInfo: string
-      location: string
-      date: string
-      price: string
-      tourType: string
-    }
-  ],
-  token: string,
-  error: string
-}
+
+
+
+

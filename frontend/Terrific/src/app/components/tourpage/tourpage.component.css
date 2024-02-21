@@ -1,7 +1,7 @@
 
 
 .navbar {
-  background-color:#4CAF50;
+  background-color:#0056b3;
   color:white;
   padding: 10px;
   /* text-align: center; */
@@ -82,7 +82,7 @@ input[type="submit"]:hover {
 
 
 .tourBtn{
-  background-color: orange;
+  background-color:#0056b3;
   padding: 10px;
   border: none;
   border-radius: solid white 1px;

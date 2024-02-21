@@ -20,6 +20,11 @@ Content-Type: application/json
 }
 
 
+###
+GET  http://localhost:5500/allUsers
+
+
+
 ### create Tours
 POST http://localhost:5500/createTours
 Content-Type: application/json
