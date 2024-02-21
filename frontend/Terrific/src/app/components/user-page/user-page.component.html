@@ -9,7 +9,7 @@
 
 <div class="container">
 
-  <div *ngFor="let tours of myTours; let i = index">
+  <div *ngFor="let tours of myTours  let i = index">
 
     <section class="containerd">
       <div class="tour-card">
@@ -20,7 +20,7 @@
         <p>{{tours.location}}</p>
         <p class="pdate">{{tours.date}}</p>
         <p>{{tours.tourType}}</p>
-        <button (click)="toggleBooking($event)">Book</button>
+        <button (click)="toggleBooking($event,tours.tour_id)">Book</button>
 
       </article>
       </div>

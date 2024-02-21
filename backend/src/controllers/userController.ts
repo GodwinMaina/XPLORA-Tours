@@ -6,6 +6,7 @@ import { Request, Response } from "express";
 import jwt from "jsonwebtoken"
 import { v4 } from 'uuid';
 import bcrypt from 'bcrypt'
+import { bookingInterface } from '../interfaces/booking.interface';
 
 
 
@@ -170,20 +171,93 @@ export const getAllUsers = async (req: Request, res: Response)=>{
         res.json({
             message: message.recordset
         });
-
-
-
     }
-
-
     catch(error)
     {
 
         console.log(error);
-        console.log("error all users cant be get");
-        
-        
+        console.log("error all users cant be get");   
 
     }
 
+}
+
+//book tours
+export const bookTours = async(req:Request,res:Response)=>{
+
+    try{
+
+        const {tour_id, user_id}: bookingInterface = req.body;
+        console.log("Booking Reqbody",req.body);
+        
+        const id =v4();
+
+        const pool = await mssql.connect(sqlConfig);
+
+        const message = (await pool.request()
+            .input("booking_id", mssql.VarChar, id)
+            .input("tour_id", mssql.VarChar, tour_id)
+            .input("user_id", mssql.VarChar, user_id)
+            .execute('createBooking')).rowsAffected;
+
+            console.log(message);
+            return res.status(200).json({
+                message: 'WOWWWWWWWWWWWWWWW YOUR Booking successfully created',
+                
+            });
+
+    }
+
+    catch(error){
+        console.log(error);
+        
+        
+        
+    }
+
+} 
+
+
+//get allbooked Tours
+export const AllBookedTours = async (req: Request, res: Response) => {
+
+    try {
+       const pool = await mssql.connect(sqlConfig);
+        //query to fetch FROM Tour TABLE
+        const message = await pool.query('SELECT * FROM Bookings');
+        res.json({
+            message: message.recordset
+        });
+    }
+        catch (error) {
+            console.error("error can't get from the Table Tour");
+            res.status(500).send('Server Error');
+        }
+};
+
+
+//get booked Tour by User_id
+export const  UserBookedTour = async (req: Request, res: Response)=>{
+
+    const user_id = req.params.id;
+     const pool = await mssql.connect(sqlConfig);
+
+    try{
+       
+       const bookedTour = (
+        //query to fetch FROM Tour TABLE by tour_id
+         await pool.request()
+        .input("user_id", mssql.VarChar, user_id)
+        .query('SELECT * FROM Bookings WHERE user_id=@user_id')
+         ).recordset;
+
+         return res.json({
+            bookedTour,
+        });
+    }
+
+    catch{
+        console.log("cant get the tour booked");
+        
+    }
 }

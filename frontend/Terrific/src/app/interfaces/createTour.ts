@@ -8,5 +8,5 @@ export interface createTourInterface{
   date:string,
   price:string,
   tourType:string,
-  // bookStatus:string
+  //bookStatus:string
 }

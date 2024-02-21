@@ -68,5 +68,21 @@ PUT   http://localhost:5500/Tours/765b8de9-754b-42a2-99d8-77a5899b80cb
 PUT  http://localhost:5500/Tours/765b8de9-754b-42a2-99d8-77a5899b80cb
 
 
+###
+//bookings
+
+POST   http://localhost:5500/bookings
+Content-Type: application/json
+
+{
+     "tour_id": "086c6a9e-9a99-4323-b98e-4adf10e0c23d",
+    "user_id": "2b054a5a-71bf-4e3b-aa98-87be3f1bfa00"
+}
 
 
+###GET all booked Tours
+GET  http://localhost:5500/bookedTours
+
+
+###
+GET  http://localhost:5500/booked/f7fa80f3-8149-4af6-a67e-375da7300e66

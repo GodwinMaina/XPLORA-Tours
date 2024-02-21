@@ -12,3 +12,4 @@ CREATE TABLE Tours
 )
 
 SELECT *FROM Tours
+
