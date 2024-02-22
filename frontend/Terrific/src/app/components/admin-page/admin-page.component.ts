@@ -17,7 +17,7 @@ import { createInterface } from 'readline';
 
 export class AdminPageComponent {
 
-  myTours:createTourInterface[]=[];
+  myTours:any[]=[];
 
 constructor(private router: Router, public apiConnect:ApiConnectionComponent) {
 
@@ -31,7 +31,21 @@ this.apiConnect.getAllTours().subscribe(
 
 })
 
-  }
+}
+
+deleteTours(tour_id: string): void {
+  this.apiConnect.deleteTour(tour_id).subscribe(
+    response => {
+      console.log(response);
+      // Handle response as needed
+    },
+    error => {
+      console.error('Error deleting tour:', error);
+      // Handle error gracefully
+    }
+  );
+}
+
 
     navigateToAddTours() {
     this.router.navigate(['/addTours']);

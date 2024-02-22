@@ -13,6 +13,8 @@ import { AuthService } from '../auth-connection/auth-connection.component';
 })
 export class ApiConnectionComponent {
 
+
+
   constructor(private http: HttpClient,private authService:AuthService) { }
 
   signUpUser(UserName: string, email: string, password: string): Observable<any> {
@@ -47,7 +49,6 @@ export class ApiConnectionComponent {
 
 
   getAllTours() {
-
     interface tourResponse {
       message: [ { tour_id:string,tour_img: string ,tourName: string, tourInfo: string, location: string, date: string,price: string,tourType: string,}],
 
@@ -80,9 +81,33 @@ export class ApiConnectionComponent {
   }
 
 
+  getAllBookedTours(){
+    interface allBooked {
+      message: [ { tour_id:string, user_id:string, booking_id:string}]
+      }
+      return this.http.get<allBooked>('http://localhost:5500/bookedTours')
+  }
+
+
+userBookedTours(tour_id:string){
+  interface allBooked {
+    message: string,
+    error: string
+  }
+    return this.http.get<allBooked>(`http://localhost:5500/booked/${tour_id}`)
 }
 
 
+deleteTour(tour_id: string) {
+  interface deleteResponse {
+    message: string,
+    error: string
+  }
+  return this.http.delete<deleteResponse>(`http://localhost:5500/delete/${tour_id}`)
+}
+
+
+}
 
 
 

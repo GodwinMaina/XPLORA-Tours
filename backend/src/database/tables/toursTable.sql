@@ -13,3 +13,6 @@ CREATE TABLE Tours
 
 SELECT *FROM Tours
 
+
+DELETE FROM Tours
+WHERE tour_id='7c164a87-db14-4766-a598-8287f3d368cf'

@@ -10,3 +10,5 @@ export interface createTourInterface{
   tourType:string,
   //bookStatus:string
 }
+
+

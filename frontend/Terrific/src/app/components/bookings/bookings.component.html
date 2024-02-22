@@ -1,1 +1,12 @@
-<p>bookings works!</p>
+<div class="container">
+
+  <div *ngFor="let booky of allBooked; let i = index" class="booked-tour">
+
+    <img src="{{ booky.tourName }}" alt="Tour Image">
+    <div class="tour-details">
+      <h2>Booked by: {{ booky.email }}</h2>
+      <h2>Date: {{ booky.date }}</h2>
+      <h2>Location: {{ booky.location }}</h2>
+    </div>
+  </div>
+</div>

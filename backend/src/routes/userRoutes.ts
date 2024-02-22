@@ -1,6 +1,6 @@
 
 import{Router} from "express";
-import { AllBookedTours, UserBookedTour, bookTours, createTour, getAllTours, getAllUsers, getSingleTour, signupUser } from "../controllers/userController";
+import { AllBookedTours, UserBookedTour, bookTours, createTour, deleteTour, getAllTours, getAllUsers, getSingleTour, signupUser } from "../controllers/userController";
 import { loginUser } from "../authentications/authLogin";
 import { verifyToken } from "../middlewares/verifyToken";
 verifyToken
@@ -32,11 +32,12 @@ router.post('/bookings', bookTours)
 router.get('/bookedTours', AllBookedTours);
 
 
-router.get('/booked:id', UserBookedTour)
+router.get('/booked/:id', UserBookedTour)
 export default router;
 
 
 
+router.delete('/delete/:id', deleteTour);
 
 
 

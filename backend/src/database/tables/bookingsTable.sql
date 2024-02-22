@@ -12,5 +12,14 @@ CREATE TABLE Bookings(
 
 )
 
+
+
+
+ALTER TABLE Bookings
+ADD CONSTRAINT FK_Bookings_Tours FOREIGN KEY (tour_id) REFERENCES Tours(tour_id) ON DELETE CASCADE;
+
+
 SELECT *FROM Bookings
 
+
+DROP TABLE Bookings

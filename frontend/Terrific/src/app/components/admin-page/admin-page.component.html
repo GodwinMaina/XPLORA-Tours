@@ -26,16 +26,16 @@
         <section class="containerd">
 
           <div class="tour-card">
-           <img src="{{tours.tour_img}}" alt="">
+           <img src="{{tours.tourName}}" alt="">
            <article class="tour-info">
-           <!-- <p>{{tours.tourName}}</p> -->
+           <p>{{tours.tour_img}}</p>
             <!-- <p>{{tours.tourInfo}}</p> -->
             <p>{{tours.location}}</p>
             <p class="pdate">{{tours.date}}</p>
             <p>{{tours.tourType}}</p>
            <p style="font-size: 20px;">Ksh. {{tours.price}}</p>
            <button>Edit</button>
-           <button>Delete</button>
+           <button style="background-color:red" (click)="deleteTours(tours.tour_id)">Delete</button>
           </article>
           </div>
         </section>

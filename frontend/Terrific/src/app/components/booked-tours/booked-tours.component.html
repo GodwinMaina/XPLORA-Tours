@@ -1,1 +1,17 @@
-<p>booked-tours works!</p>
+<h2>Here are your booked Tours</h2>
+
+<div class="container">
+
+  <div *ngFor="let booky of allBooked; let i = index" class="booked-tour">
+
+    <img src="{{ booky.tourName }}" alt="Tour Image">
+    <div class="tour-details">
+      <h2>{{booky.tour_img}}</h2>
+      <h2>{{booky.Info}}</h2>
+      <h2>Date: {{ booky.date }}</h2>
+      <h2>Location: {{ booky.location }}</h2>
+      <h1>Pay:{{booky.price}}</h1>
+    </div>
+  </div>
+</div>
+

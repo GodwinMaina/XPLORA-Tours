@@ -35,9 +35,13 @@ import { CommonModule } from '@angular/common';
       // User is logged in, you can proceed with booking
       console.log('Booking tour with ID:', tour_id, 'for user with ID:', user_id);
 
+      this.router.navigate(['/booked'], { queryParams: { user_id: user_id } });
+
       // Change button style
       const button = event.target as HTMLButtonElement;
       button.style.backgroundColor = 'yellow';
+      button.style.color = 'black';
+
       button.innerText = 'Booked';
 
       // Make HTTP request to save booking

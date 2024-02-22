@@ -1,6 +1,6 @@
 CREATE PROCEDURE createTours (
     @tour_id NVARCHAR(250),
-    @tour_img NVARCHAR(250),
+    @tour_img NVARCHAR(1000),
     @TourName NVARCHAR(250),
     @tourInfo NVARCHAR(250),
     @location NVARCHAR(250),
