@@ -42,3 +42,4 @@ describe("Tour create", ()=>{
         expect(res.json).toHaveBeenCalledWith({ message: "Tour created successfully" })
     })
 })
+ 
