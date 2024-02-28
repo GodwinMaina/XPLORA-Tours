@@ -5,6 +5,11 @@ CREATE OR ALTER PROCEDURE createBooking(
 )
 AS
 BEGIN
+
+ INSERT INTO Bookings (booking_id, tour_id, user_id)
+        VALUES (@booking_id, @tour_id, @user_id);
+   END      
+
     BEGIN TRY
         -- Check if user exists
         IF NOT EXISTS (SELECT 1 FROM Users WHERE user_id = @user_id)

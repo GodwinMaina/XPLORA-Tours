@@ -23,7 +23,7 @@
   <input type="text" id="tourLocation" name="location" formControlName="location"><br><br>
 
   <label for="tourLocation">Date</label><br>
-  <input type="date" id="tourDate" name="date" formControlName="date"><br><br>
+  <input type="date" id="tourDate" name="date" formControlName="date"  [min]="today"><br><br>
 
   <label for="tourPrice">Tour Price</label><br>
   <input type="text" id="tourPrice" name="price" formControlName="price"><br><br>
@@ -38,7 +38,7 @@
   </select><br><br>
 
   <div class="submit-container">
-    <button class="tourBtn"  type="submit"  [disabled]="tourForm.invalid">Add Tour</button>
+    <button class="tourBtn"  type="submit"  [style.backgroundColor]="getButtonColor()" [disabled]="tourForm.invalid">Add Tour</button>
 </div>
 </form>
 

@@ -15,10 +15,14 @@ import { ApiConnectionComponent } from '../../services/api-connection/api-connec
 export class TourpageComponent {
 
   tourForm!:FormGroup;
+  today: string | undefined;
+
 
   constructor(private fb:FormBuilder, public apiConnect:ApiConnectionComponent, private router: Router){
+    //make form have date to be choosen from current day only
+    this.today = new Date().toISOString().split('T')[0];
+    this.tourForm=this.fb.group({
 
-  this.tourForm=this.fb.group({
  tour_img: ['', [Validators.required]],
  tourName: ['', [Validators.required]],
  tourInfo: ['', [Validators.required]],
@@ -28,6 +32,10 @@ export class TourpageComponent {
   tourType: ['', [Validators.required]]
 
   });
+}
+
+getButtonColor() {
+  return this.tourForm.invalid ? 'navy' : 'blue';
 }
 
   onSubmitTour(){

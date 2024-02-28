@@ -30,6 +30,7 @@ export const routes: Routes = [
   {path:'bookings', component:BookingsComponent },
   {path:'reviews', component:ReviewsComponent },
   {path:'booked', component:BookedToursComponent},
+  {path:'reviews', component:ReviewsComponent},
   {path:'**', component:ErrorPageComponent }
 
 ];

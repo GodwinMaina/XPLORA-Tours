@@ -107,7 +107,7 @@ export const createTour = async (req: Request, res: Response) => {
 
     catch (error) {
         console.error("Error creating Tour:", error);
-        return res.status(500).json({ error: "An error occurred while creating the task." });
+        return res.status(500).json({ error: "An error occurred while creating the tour." });
     }
 
 }
@@ -232,6 +232,7 @@ export const AllBookedTours = async (req: Request, res: Response) => {
                 T.tourName,
                 T.date,
                 T.location,
+                T.price,
                 T.tourType,
                 T.tour_img, 
                 U.userName, 
@@ -264,7 +265,7 @@ export const UserBookedTour = async (req: Request, res: Response) => {
             await pool.request()
                 .input("user_id", mssql.VarChar, user_id)
                 .query(`
-                SELECT B.*, T.tourName, T.tour_img, T.location, T.date, U.email
+                SELECT B.*, T.tourName, T.tour_img,T.price ,T.location, T.date, U.email
                 FROM Bookings AS B
                 INNER JOIN Tours AS T ON B.tour_id = T.tour_id
                 INNER JOIN Users AS U ON B.user_id = U.user_id

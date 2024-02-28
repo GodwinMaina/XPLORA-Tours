@@ -47,10 +47,12 @@ export const loginUser = async (req: Request, res: Response) => {
         }
 
         const loginCredentials = user.map((response: { [x: string]: any; Password: any; userName: any; })=>{
-            const {Password, userName, ...rest} = response
+            const {Password, ...rest} = response
 
             return rest
         })
+
+        // console.log(loginCredentials)
 
         const token = jwt.sign(loginCredentials[0], SECRET, {
             expiresIn: '3600s'

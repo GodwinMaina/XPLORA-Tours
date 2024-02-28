@@ -8,6 +8,8 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private user_id: string | null = null;
 
+  public email:string | null = null;
+
   constructor() {}
 
   setUserId(user_id: string): void {
@@ -17,4 +19,13 @@ export class AuthService {
   getUserId(): string | null {
     return this.user_id;
   }
+
+  // setEMail(email: string): void {
+  //   this.email = email;
+  // }
+
+  // getEMail(): string | null {
+  //   return this.email;
+  // }
+
 }

@@ -1,1 +1,27 @@
-<p>reviews works!</p>
+
+<h2>Share Your Tour Experience</h2>
+<!-- <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()"> -->
+  <form >
+
+  <!-- <div> -->
+    <!-- <label for="tourName">Tour Name:</label><br> -->
+    <!-- <input type="text" id="tourName" formControlName="tourName"><br><br> -->
+  <!-- </div> -->
+
+  <div>
+    <label for="review">Add Your Review:</label><br>
+    <textarea id="review" formControlName="review" rows="4" cols="50"></textarea><br><br>
+  </div>
+
+  <div>
+    <label for="rating">Rating (out of 5):</label><br>
+    <input type="number" id="rating" formControlName="rating" min="1" max="5"><br><br>
+  </div>
+
+  <div>
+    <label for="recommendations">Recommendations:</label><br>
+    <textarea id="recommendations" formControlName="recommendations" rows="4" cols="50"></textarea><br><br>
+  </div>
+
+  <button type="submit" >Submit Review</button>
+</form>

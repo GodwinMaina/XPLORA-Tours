@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth-connection/auth-connection.component';
 import { ApiConnectionComponent } from '../../services/api-connection/api-connection.component';
 import { CommonModule } from '@angular/common';
+import { signUserInterface } from '../../interfaces/signUser';
 
 @Component({
   selector: 'app-user-page',
@@ -14,20 +15,55 @@ import { CommonModule } from '@angular/common';
 
   myTours: any[];
 
+  loggedInUserId: string | null = null;
+
+  user:signUserInterface[]=[]
+
+  user_id: string | null = null;
+
+
+  // const email = this.authService.getEMail();
   constructor(private router: Router, private apiConnect: ApiConnectionComponent, private authService: AuthService) {
     this.myTours = [];
+
+    this.user_id = this.authService.getUserId();
+    // this.emailed=''
+
   }
 
   ngOnInit(): void {
+
+    this.loggedInUserId = this.authService.getUserId();
+
     this.apiConnect.getAllTours().subscribe(
       response => {
         this.myTours = response.message;
       },
-      error => {
-        console.error('Error fetching tours:', error);
-      }
+      // error => {
+      //   console.error('Error fetching tours:', error);
+      // }
+
     );
+
+    this.apiConnect.getAllUsers().subscribe(
+      response=>{
+        console.log(response);
+        // const username = response.message;
+        // console.log(username)
+
+        this.user=response.message
+        // console.log(email);
+
+
+      })
+
   }
+
+
+  navigateToBookedPage(): void {
+    this.router.navigate(['/booked'], { queryParams: { user_id: this.user_id } });
+  }
+
 
   toggleBooking(event: MouseEvent, tour_id: string): void {
     const user_id = this.authService.getUserId();
@@ -35,13 +71,14 @@ import { CommonModule } from '@angular/common';
       // User is logged in, you can proceed with booking
       console.log('Booking tour with ID:', tour_id, 'for user with ID:', user_id);
 
-      this.router.navigate(['/booked'], { queryParams: { user_id: user_id } });
+      //this.router.navigate(['/booked'], { queryParams: { user_id: user_id } });
+
+      // this.router.navigate(['/booked']);
 
       // Change button style
       const button = event.target as HTMLButtonElement;
       button.style.backgroundColor = 'yellow';
       button.style.color = 'black';
-
       button.innerText = 'Booked';
 
       // Make HTTP request to save booking

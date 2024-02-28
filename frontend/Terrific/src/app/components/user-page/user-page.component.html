@@ -1,7 +1,15 @@
 <div class="navbar">
   <a href="/auth/login">&#8592;back</a>
-  <h2>Hello, welcome</h2>
-  <a href="/booked">BOOKED</a>
+  <div style="margin-left: -120px;" *ngFor="let currentUser of user">
+    <div *ngIf="currentUser['user_id'] === loggedInUserId">
+
+      <h2>Hello {{ currentUser.email }}</h2>
+      <!-- Add other user information here -->
+    </div>
+  </div>
+  <!-- user-page.component.html -->
+<button  (click)="navigateToBookedPage()">YOUR BOOKINGS</button>
+  <a href="/reviews">ADD Review</a>
   <a href="/">&#x1F6AA;LogOut</a>
 </div>
 
@@ -20,7 +28,10 @@
         <p>{{tours.location}}</p>
         <p class="pdate">{{tours.date}}</p>
         <p>{{tours.tourType}}</p>
-        <button (click)="toggleBooking($event,tours.tour_id)">Book</button>
+        <button [disabled] (click)="toggleBooking($event, tours.tour_id)" [ngClass]="{ 'booked': tours.booked }">
+          {{ tours.booked ? 'Booked' : 'Book' }}
+        </button>
+
 
       </article>
       </div>

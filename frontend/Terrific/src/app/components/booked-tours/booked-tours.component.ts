@@ -4,6 +4,7 @@ import { ApiConnectionComponent } from '../../services/api-connection/api-connec
 import { AuthService } from '../../services/auth-connection/auth-connection.component';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-booked-tours',
   templateUrl: './booked-tours.component.html',
@@ -26,18 +27,18 @@ import { ActivatedRoute } from '@angular/router';
     // Retrieve user_id from query parameters
     this.route.queryParams.subscribe((params: any) => {
       this.user_id = params['user_id'];
-      console.log('User ID on booked page:', this.user_id);
+      console.log('User ID on booked  page:', this.user_id);
 
       // Fetch booked tours for the user
       if (this.user_id) {
         this.apiConnect.userBookedTours(this.user_id).subscribe(
           (response: any) => {
-            console.log(response);
+            // console.log(response);
             this.allBooked = response.bookedTour;
           },
-          (error: any) => {
-            console.error('Error fetching user booked tours:', error);
-          }
+          // (error: any) => {
+          //   console.error('Error fetching user booked tours:', error);
+          // }
         );
       } else {
         console.warn('User ID is null.');
